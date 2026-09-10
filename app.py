@@ -2,6 +2,13 @@ from  flask import Flask, render_template
 
 app = Flask(__name__)
 
+
+# Ctegory route
+@app.route('/category')
+def index_category():
+    return render_template('category/index.html')
+
+
 @app.route('/product')
 def index_product():
     return render_template('products/index.html')
