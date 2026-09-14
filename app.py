@@ -8,6 +8,10 @@ app = Flask(__name__)
 def index_category():
     return render_template('category/index.html')
 
+@app.route('/category/create')
+def create_category():
+    return render_template('category/create.html')
+
 
 @app.route('/product')
 def index_product():

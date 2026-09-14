@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Create Category{% endblock %}
+
+{% block content %}
+<div class="w-100 py-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header bg-white py-3">
+            <h1 class="h4 card-title mb-0 fw-bold">Create Category</h1>
+        </div>
+        <div class="card-body p-4">
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label fw-medium">Category Name</label>
+                    <input type="text" class="form-control" placeholder="e.g. Electronics, clothes, shoes,...">
+                </div>
+                
+                <div class="mb-4">
+                    <label class="form-label fw-medium">Status</label>
+                    <select class="form-select" name="status">
+                        <option value="">--Select Status--</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary px-4">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
