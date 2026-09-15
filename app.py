@@ -3,7 +3,9 @@ from  connection import conn
 
 app = Flask(__name__)
 
-
+@app.route('/')
+def dashboard():
+    return render_template('layout/base.html')
 # Ctegory route
 @app.route('/category')
 def index_category():
