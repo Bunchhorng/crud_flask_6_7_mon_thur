@@ -9,10 +9,10 @@
             <h1 class="h4 card-title mb-0 fw-bold">Create Category</h1>
         </div>
         <div class="card-body p-4">
-            <form method="POST">
+            <form method="POST" action="{{url_for('create_category')}}">
                 <div class="mb-3">
                     <label class="form-label fw-medium">Category Name</label>
-                    <input type="text" class="form-control" placeholder="e.g. Electronics, clothes, shoes,...">
+                    <input type="text" class="form-control" name="name" placeholder="e.g. Electronics, clothes, shoes,...">
                 </div>
                 
                 <div class="mb-4">

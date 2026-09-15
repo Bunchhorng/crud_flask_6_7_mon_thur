@@ -6,7 +6,7 @@ def connectDB():
         user = "root",
         password='',
         port = 3309,
-        database='crud_product'
+        database='inventory_flask_6_7_db'
     )
 
 conn = connectDB()
