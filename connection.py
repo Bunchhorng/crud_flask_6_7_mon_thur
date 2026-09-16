@@ -6,7 +6,8 @@ def connectDB():
         user = "root",
         password='',
         port = 3309,
-        database='inventory_flask_6_7_db'
+        database='inventory_flask_6_7_db',
+        cursorclass=pymysql.cursors.DictCursor,
     )
 
 conn = connectDB()

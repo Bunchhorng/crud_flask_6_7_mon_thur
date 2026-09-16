@@ -9,7 +9,11 @@ def dashboard():
 # Ctegory route
 @app.route('/category')
 def index_category():
-    return render_template('category/index.html')
+    cursor = conn.cursor() 
+    cursor.execute("SELECT * FROM categories")
+    categories = cursor.fetchall()
+    cursor.close()
+    return render_template('category/index.html', categories=categories)
 
 @app.route('/category/create', methods=['GET', 'POST'])
 def create_category():
@@ -26,6 +30,27 @@ def create_category():
         return redirect(url_for('index_category'))
     return render_template('category/create.html')
 
+
+@app.route('/category/update/<int:id>', methods=['GET', 'POST'])
+def update_category(id):
+    cursor = conn.cursor()
+
+    if request.method=="POST":
+        newName = request.form['name']
+        newStatus = request.form['status']
+
+        sql = "UPDATE categories SET name=%s, status=%s WHERE id=%s"
+        cursor.execute(sql,(newName, newStatus, id))
+        conn.commit()
+        cursor.close()
+        return redirect(url_for('index_category'))
+
+    cursor.execute("SELECT * FROM categories WHERE id=%s", (id,))
+    category = cursor.fetchone()
+    if not category:
+        return "404 Not Found"
+    
+    return render_template('category/update.html', category=category)
 
 @app.route('/product')
 def index_product():
