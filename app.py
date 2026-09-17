@@ -66,6 +66,9 @@ def delete_category(id):
 def index_product():
     return render_template('products/index.html')
 
+@app.route('/product/create', methods=['GET', 'POST'])
+def create_product():
+    return render_template('products/create.html')
 
 if __name__=="__main__":
     app.run(debug=True)
