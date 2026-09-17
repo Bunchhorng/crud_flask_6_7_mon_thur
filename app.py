@@ -52,6 +52,16 @@ def update_category(id):
     
     return render_template('category/update.html', category=category)
 
+
+@app.route('/category/delete/<int:id>', methods=['GET', 'POST'])
+def delete_category(id):
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM categories WHERE id=%s", (id,))
+    conn.commit()
+    cursor.close()
+    return redirect(url_for('index_category'))
+
+
 @app.route('/product')
 def index_product():
     return render_template('products/index.html')
