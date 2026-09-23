@@ -10,7 +10,7 @@
     </div>
     <hr>
 
-    <div class="d-flex justify-content-between flex-wrap">
+    <div class="d-flex justify-content-start gap-3 flex-wrap">
         {% for pro in products %}
             <div class="card shadow-sm h-100" style="max-width: 18rem; margin-top: 20px;">
                 <!-- Product Image -->
@@ -21,13 +21,13 @@
                     <h5 class="card-title fw-bold text-dark mb-1">{{ pro.name }}</h5>
                     
                     <div class="d-flex justify-content-between align-items-center my-2">
-                    <span class="fs-4 fw-bold text-primary">${{ pro.prie }}</span>
+                    <span class="fs-4 fw-bold text-primary">${{ pro.price }}</span>
                     <span class="badge bg-secondary-subtle text-secondary border">Stock: {{ pro.stock }}</span>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="mt-auto pt-3 d-flex gap-2">
-                    <a href="#" class="btn btn-outline-primary btn-sm w-50">EDIT</a>
+                    <a href="{{url_for('update_product', id =pro.id)}}" class="btn btn-outline-primary btn-sm w-50">EDIT</a>
                     <a href="#" class="btn btn-outline-danger btn-sm w-50">DELETE</a>
                     </div>
                 </div>
