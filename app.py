@@ -150,5 +150,14 @@ def update_product(id):
     cursor.close()
     return render_template('products/update.html', product=product)
 
+
+@app.route('/pproduct/delete/<int:id>', methods=['POST'])
+def delete_product(id):
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM products WHERE id=%s', (id,))
+    conn.commit()
+    cursor.close()
+    return redirect(url_for('index_product'))
+
 if __name__=="__main__":
     app.run(debug=True)
